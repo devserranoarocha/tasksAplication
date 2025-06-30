@@ -1,0 +1,67 @@
+
+<!-- Boton regresar a la pagina inicial -->
+<div class="min-h-screen flex flex-col items-center bg-gray-100 p-6 sm:p-10">
+  <div class="w-full flex justify-start mb-6">
+    <button (click)="onLogout()"
+      class="bg-amber-600 text-white font-medium px-6 py-2 rounded-lg border border-amber-800 
+             hover:bg-blue-950 hover:text-amber-300 transition duration-300 ease-in-out shadow-md">
+      Log Out
+    </button>
+  </div>
+
+  <div class="w-full max-w-md bg-amber-200 p-8 sm:p-10 rounded-xl shadow-xl border-2 border-amber-500
+              flex flex-col items-center gap-y-6">
+    <div class="text-2xl font-extrabold text-amber-900 text-center tracking-tight" *ngIf="user">
+      <p>Welcome, {{ user.email }}</p>
+    </div>
+    <h2 class="text-3xl font-extrabold text-amber-900 text-center tracking-tight">Your Task List</h2>
+    
+    <!-- Se incluye el FormGroup creado -->
+    <form [formGroup]="taskForm" (ngSubmit)="addTask()" class="flex w-full gap-x-3"> 
+        <input type="text" placeholder="Add a new task..." formControlName="title"
+          class="flex-grow bg-white p-3 border border-amber-400 text-gray-800 rounded-lg 
+                 focus:outline-none focus:ring-2 focus:ring-amber-500 transition duration-200" />
+          <button type="submit"
+          class="bg-orange-500 text-white font-bold px-5 py-3 rounded-lg border border-orange-700 
+                 hover:bg-blue-950 hover:text-amber-200 transition duration-300 ease-in-out shadow-sm"> 
+                 Add
+          </button>
+    </form>
+
+    <!-- Incluimos el campo para las busquedas-->
+    <div class="w-full">
+      <input type="text" [formControl]="searchControl" placeholder="Search tasks..."
+        class="w-full bg-white p-3 border border-amber-400 text-gray-800 rounded-lg 
+              focus:outline-none focus:ring-2 focus:ring-amber-500 transition duration-200" />
+    </div>
+
+    <!-- Lista de tareas Filtradas -->
+    <ul *ngIf="filteredTasks.length > 0; else noTasks" class="w-full space-y-3 mt-4">
+      <li *ngFor="let task of filteredTasks" 
+          class="flex items-center justify-between p-3 bg-white rounded-lg shadow-sm border-l-4 border-amber-600
+                transition-colors duration-300 ease-in-out"
+          [ngClass]="{'border-gray-400 bg-gray-50': task.completed}">
+          <!-- Marcamos/Desmarcamos como realizadas y cambiamos estilo-->
+          <span (click)="toggleTask(task)"     
+            class="text-base text-gray-800 cursor-pointer select-none flex-grow pr-2 
+                  hover:text-amber-700 transition duration-200 ease-in-out"
+            [ngClass]="{
+              'line-through text-gray-500 opacity-80 italic': task.completed
+            }">
+            {{ task.title }}
+          </span>
+        <button (click)="deleteTask(task.id)" 
+          class="bg-red-100 text-red-600 w-8 h-8 flex items-center justify-center rounded-full 
+              hover:bg-red-200 transition duration-200 focus:outline-none focus:ring-2 focus:ring-red-400">
+           ❌
+        </button>
+      </li>
+    </ul>
+
+    <!-- Se muestra mensaje si no hay ninguna tarea o no se encuentra tras busqueda -->
+    <ng-template #noTasks>
+      <p class="text-gray-600 text-base mt-4">Nothing found. Add some tasks!</p>
+    </ng-template>
+   
+  </div>
+</div>

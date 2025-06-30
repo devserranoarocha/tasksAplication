@@ -1,0 +1,8 @@
+<p>menu works!</p>
+
+<h2>Main Menu</h2>
+<div *ngIf="user">
+ <p>Welcome, {{ user.email }}</p>
+ <p>Roles: {{ user.roles.join(', ') }}</p>
+</div>
+<button (click)="logout()">Logout</button>

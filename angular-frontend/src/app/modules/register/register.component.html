@@ -1,0 +1,49 @@
+<div class="relative min-h-screen flex items-start justify-center p-4">
+  <div class="relative bg-gradient-to-br from-amber-400 to-amber-700 p-1 rounded-2xl shadow-2xl">
+    <div class="bg-white p-8 md:p-12 lg:p-16 rounded-2xl flex flex-col items-center justify-center gap-y-6 
+                max-w-md mx-auto text-center">
+
+      <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 tracking-tight leading-tight">
+        Register Here
+      </h2>
+
+      <form [formGroup]="form" (ngSubmit)="submit()" class="w-full flex flex-col gap-y-4">
+        <input
+          formControlName="email"
+          type="email" 
+          placeholder="Email"
+          class="w-full px-4 py-3 rounded-lg border border-gray-300
+                 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent
+                 text-gray-800 placeholder-gray-500 font-medium"
+        />
+
+        <input
+          formControlName="password"
+          type="password"
+          placeholder="Password"
+          class="w-full px-4 py-3 rounded-lg border border-gray-300
+                 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent
+                 text-gray-800 placeholder-gray-500 font-medium"
+        />
+
+        <button
+          type="submit"
+          class="bg-amber-600 hover:bg-blue-950 text-white font-bold py-3 px-8 rounded-full shadow-lg
+                 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105
+                 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-75 w-full"
+        >
+          Sign Up
+        </button>
+      </form>
+
+      <button
+        routerLink="/login"  class="bg-amber-600 hover:bg-blue-950 text-white font-bold py-3 px-8 rounded-full shadow-lg 
+                transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 
+                focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-75 w-full"
+      >
+        Back to Login
+      </button>
+
+    </div>
+  </div>
+</div>
