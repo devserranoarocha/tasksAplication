@@ -16,7 +16,7 @@ Antes de comenzar, asegúrate de tener instalados en tu sistema:
 ### 1️⃣ Clonar el repositorio
 Ejecuta el siguiente comando para clonar el proyecto:
 ```bash
-git clone git@github.com:campus-CodeArts/Onboarding-SymfAngular.git
+git clone git@github.com:devserranoarocha/tasksAplication.git
 cd Onboarding-SymfAngular
 ```
 
@@ -94,3 +94,7 @@ sudo chmod 775 -R (contenedor_de_Symfony_o_Angular_frontend)
 Ej:
 sudo chmod 775 -R angular-frontend
 ```
+
+## Mejoras añadidas
+- Se añadio Servicio de notificaciones Toast
+- Se añadio JWT y nuevas entidades a la Base de Datos para tener usuarios diferenciados con sus propias tareas.
