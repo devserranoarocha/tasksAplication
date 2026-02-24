@@ -3,8 +3,8 @@ services:
     build:
       context: ./symfony-backend
       dockerfile: ./docker/php/Dockerfile
-    container_name: symfony_backend
-    restart: unless-stopped
+    container_name: task_backend
+    # restart: unless-stopped
     working_dir: /var/www/app
     volumes:
       - ./symfony-backend/app:/var/www/app
@@ -24,7 +24,7 @@ services:
         fi
         
         php bin/console doctrine:database:create --if-not-exists;
-        php bin/console doctrine:schema:update --force;
+        php bin/console doctrine:migrations:migrate --no-interaction;
 
         if symfony server:status > /dev/null 2>&1; then
           symfony server:stop;
@@ -36,8 +36,8 @@ services:
 
   db:
     image: postgres:13
-    container_name: symfony_postgres
-    restart: always
+    container_name: task_postgres
+    #restart: always
     environment:
       POSTGRES_USER: symfony
       POSTGRES_PASSWORD: password
@@ -55,8 +55,8 @@ services:
     build:
       context: ./angular-frontend
       dockerfile: Dockerfile
-    container_name: angular_frontend
-    restart: always
+    container_name: task_frontend
+    #restart: always
     working_dir: /app
     volumes:
       - ./angular-frontend:/app
