@@ -5,7 +5,7 @@
 [![Docker](https://img.shields.io/badge/Docker-Ready-blue.svg?logo=docker)](https://www.docker.com/)
 
 ![Banner del Proyecto](screenshots/landing.png) 
-Proyecto Fullstack diseñado para adquirir y practicar conocimientos sobre **PHP/Symfony** y **Angular** realizando para ello una sencilla aplicacion de tareas pendientes. 
+Primer proyecto Fullstack diseñado para adquirir y practicar conocimientos sobre **PHP/Symfony** y **Angular** realizando para ello una sencilla aplicacion de tareas pendientes. 
 
 ---
 
@@ -41,8 +41,7 @@ Como aspirante a Desarrollador Backend PHP, este proyecto ha sido el escenario p
 graph LR
     A[Angular Client] -- JWT Auth --> B(Symfony API)
     B -- Doctrine ORM --> C[(PostgreSQL)]
-    B -- FileSystem --> D[Images Storage]
-    
+        
     style B fill:#000,stroke:#fff,stroke-width:2px,color:#fff
     style C fill:#336791,stroke:#fff,color:#fff
 ```
@@ -66,6 +65,10 @@ Este proyecto utiliza Docker y Docker Compose para desplegar una aplicación que
 
 ---
 
+Comprueba el estado de los contenedores con:
+```bash
+docker ps
+```
 ## 🛠️ Requisitos Previos
 Antes de comenzar, asegúrate de tener instalados en tu sistema:
 
@@ -75,6 +78,10 @@ Antes de comenzar, asegúrate de tener instalados en tu sistema:
 
 ## 🚀 Instalación y Puesta en Marcha
 
+Comprueba el estado de los contenedores con:
+```bash
+docker ps
+```
 ### 1️⃣ Clonar el repositorio
 Ejecuta el siguiente comando para clonar el proyecto:
 ```bash
@@ -142,12 +149,12 @@ Para más información sobre **Symfony**, **Angular** o **PostgreSQL**, consulta
 
 - Para acceder al contenedor del Frontend Angular:
 ```
-  docker exec -it pd_frontend sh
+  docker exec -it task_frontend sh
 ```
 
 - Para acceder al contenedor del Backend Symfony:
 ```
-docker exec -it pd_backend bash
+docker exec -it task_backend bash
 ```
 - Si tienes problemas de permisos para levantar un contenedor, prueba a ejecutar el siguiente comando:
 
