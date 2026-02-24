@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common'; // Importar CommonModule si es n
     RouterModule 
   ],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrls: []
 })
 export class RegisterComponent {
   form: FormGroup;
@@ -48,5 +48,29 @@ export class RegisterComponent {
       this.form.markAllAsTouched();
       alert('Please complete all required fields correctly.');
     }
+  }
+
+    ngOnInit(): void { 
+    // mensaje en consola
+  const style = `
+    background: #FF8A00; 
+    color: white; 
+    padding: 5px 10px; 
+    border-radius: 5px; 
+    font-weight: bold; 
+    font-size: 15px;
+    font-family: sans-serif;
+  `;
+
+  const linkStyle = `
+    color: #FF8A00; 
+    font-weight: bold;
+    font-size: 15px; 
+    text-decoration: underline;
+  `;
+
+  console.log('%c🚀 Desarrollado con Angular y Symfony', style);
+  console.log('%c👤 devserranoarocha', style);
+  console.log('%c🔗 https://github.com/devserranoarocha', linkStyle);
   }
 }

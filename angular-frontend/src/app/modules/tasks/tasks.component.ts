@@ -15,7 +15,7 @@ import { AuthService } from '../../services/auth.service';
   selector: 'app-tasks',
   imports: [CommonModule, RouterModule, ReactiveFormsModule ],  // Importamos el modulo ReactiveForms aqui tambien
   templateUrl: './tasks.component.html',
-  styleUrls: ['./tasks.component.scss']
+  styleUrls: []
 })
 export class TasksComponent implements OnInit {
   tasks: Task[] = [];  // Contiene todas las tareas
@@ -33,6 +33,29 @@ export class TasksComponent implements OnInit {
   user: any;
 
   ngOnInit(): void {
+
+    // mensaje en consola
+    const style = `
+      background: #FF8A00; 
+      color: white; 
+      padding: 5px 10px; 
+      border-radius: 5px; 
+      font-weight: bold; 
+      font-size: 15px;
+      font-family: sans-serif;
+    `;
+
+    const linkStyle = `
+      color: #FF8A00; 
+      font-weight: bold;
+      font-size: 15px; 
+      text-decoration: underline;
+    `;
+
+    console.log('%c🚀 Desarrollado con Angular y Symfony', style);
+    console.log('%c👤 devserranoarocha', style);
+    console.log('%c🔗 https://github.com/devserranoarocha', linkStyle);
+
     // COMPROBAR EL LOGIN ---
     // Comprueba si el token existe en localStorage usando AuthService
     if (!this.authService.getUser()) {

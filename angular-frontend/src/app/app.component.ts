@@ -6,7 +6,7 @@ import { NotificationToastComponent } from './shared/components/toast/toast.comp
   selector: 'app-root',
   imports: [RouterOutlet, NotificationToastComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: []
 })
 export class AppComponent {
   title = 'angular-frontend';
